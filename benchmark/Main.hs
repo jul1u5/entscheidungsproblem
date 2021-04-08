@@ -1,7 +1,8 @@
-module Main (main) where
+module Main
+  ( main
+  ) where
 
-import Gauge.Main
-
+import           Gauge.Main
 
 main :: IO ()
 main = defaultMain [bench "const" (whnf const ())]

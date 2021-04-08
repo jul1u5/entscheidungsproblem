@@ -1,7 +1,6 @@
-module Main (main) where
-
-import Entscheidungsproblem (someFunc)
-
+module Main
+  ( main
+  ) where
 
 main :: IO ()
-main = someFunc
+main = undefined

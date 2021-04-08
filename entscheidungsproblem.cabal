@@ -22,10 +22,6 @@ source-repository head
 
 common common-options
   build-depends:       base ^>= 4.14.0.0
-                     , relude
-  
-  mixins:              base hiding (Prelude)
-                     , relude (Relude as Prelude)
   
   ghc-options:         -Wall
                        -Wcompat
@@ -39,21 +35,24 @@ common common-options
   if impl(ghc >= 8.4)
     ghc-options:       -Wmissing-export-lists
                        -Wpartial-fields
-  if impl(ghc >= 8.8)
-    ghc-options:       -Wmissing-deriving-strategies
 
   default-language:    Haskell2010
 
 library
   import:              common-options
   hs-source-dirs:      src
-  exposed-modules:     Entscheidungsproblem
+  exposed-modules:     Entscheidungsproblem Tape Machine.Alternator Machine.Irrational
 
 executable entscheidungsproblem
   import:              common-options
   hs-source-dirs:      app
   main-is:             Main.hs
   build-depends:       entscheidungsproblem
+                     , relude
+  
+  mixins:              base hiding (Prelude)
+                     , relude (Relude as Prelude)
+
   ghc-options:         -threaded
                        -rtsopts
                        -with-rtsopts=-N
